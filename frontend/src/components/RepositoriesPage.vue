@@ -12,25 +12,25 @@
     <div v-for="repository in filteredRepos" v-bind:key="repository.name" >
       <Octicon :icon="repo" />
       <h3 >{{repository.name}}</h3>
-      <p>
+      <div>
         Latest commit
         {{repository.cache.commit.timestamp}} <!-- TODO format date -->
         by
-        <!-- TODO add user avatar -->
+        <GithubAvatar v-bind:serviceId="repository.cache.commit.author.service_id" />
         {{repository.cache.commit.author.username}}
         <div class="button-group">
-        <button class="button primary">
-          {{parseFloat(repository.cache.commit.totals[5]).toFixed(2)}}%
-        </button>
-        <button class="button">
-        <!-- TODO compute this value -->
-        ø
-        </button>
-        <button class="button">
-        ø
-        </button>
+          <button class="button">
+            {{repository.cache.commit.totals[5]}}%
+          </button>
+          <button class="button">
+            <!-- TODO compute this value -->
+            ø
+          </button>
+          <button class="button">
+            ø
+          </button>
         </div>
-      </p>
+      </div>
     </div>
   </div>
 </template>
@@ -39,10 +39,11 @@
 
 import axios from 'axios'
 import Octicon, { repo, search } from 'octicons-vue'
+import GithubAvatar from './GithubAvatar.vue'
 
 export default {
   name: 'FirstComponent',
-  components: { Octicon },
+  components: { Octicon, GithubAvatar },
   data: function () {
     return {
       filter: '',
@@ -90,7 +91,7 @@ export default {
     border: solid 1px #ebeceb;
     background-color: #ffffff;
     padding: 6px 12px;
-    min-width: 60px;
+    min-width: 100px;
   }
 
   .button:first-child {
