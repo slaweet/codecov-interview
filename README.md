@@ -33,6 +33,12 @@ The app will be viewable at http://0.0.0.0:8000. The application itself hot relo
 
 All work should be performed in the `frontend` folder. You're free to edit the `frontend/package.json` file to add and additional node packages you may need. 
 
+To add packages / access the CLI for the vue application, you can run: 
+
+`docker exec -ti codecov-interview_frontend_1 sh`
+
+in a terminal to get dropped into the running container's `/app` directory. From here you'll have access to npm, etc. 
+
 ## Handy References and Tips
 Below are some references and tips that can help make your exercise successful.
 
@@ -44,8 +50,13 @@ Some important packages are already in place so that you can begin work immediat
 * VueX -- https://vuex.vuejs.org/ state management
 * vue-router -- https://router.vuejs.org/ for page routing.
 
-Finally, if you prefer to use code as a reference, the vue-enterprise-boilerplate repo might be helpful for demonstrating how to use the above packages. See: https://github.com/chrisvfritz/vue-enterprise-boilerplate
+If you prefer to use code as a reference, the vue-enterprise-boilerplate repo might be helpful for demonstrating how to use the above Vue packages. See: https://github.com/chrisvfritz/vue-enterprise-boilerplate
 
+This project makes use of vue-octicons for icon support integrated directly into Vue. You can read more about usage here: 
+
+https://www.npmjs.com/package/octicons-vue
+
+and the octicon reference: https://octicons.github.com/
 
 ### Codecov's API
 It will be necessary to ingest data from Codecov's API during the course of this exercise. You can find the API reference here: 
