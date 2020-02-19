@@ -2,8 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import RepositoriesPage from '@/components/RepositoriesPage.vue'
+import RepositoryOverviewPage from '@/components/RepositoryOverviewPage.vue'
 
 const routes = [
+  { path: '/overview/:repo', component: RepositoryOverviewPage },
   { path: '*', component: RepositoriesPage }
 ]
 

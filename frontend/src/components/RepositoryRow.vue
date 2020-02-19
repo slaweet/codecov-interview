@@ -3,7 +3,7 @@
     <div class="row">
       <Octicon :icon="repo" />
       <div class="column">
-        <h3 >{{repository.name}}</h3>
+        <h3 ><a v-bind:href="`/overview/${repository.name}`">{{repository.name}}</a></h3>
         <div class="commit">
           <span class="commit-message">
             Latest commit at
