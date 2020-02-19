@@ -10,24 +10,7 @@
     </div>
 
     <div v-for="repository in filteredRepos" v-bind:key="repository.name" >
-      <Octicon :icon="repo" />
-      <h3 >{{repository.name}}</h3>
-      <div>
-        Latest commit
-        {{repository.cache.commit.timestamp}} <!-- TODO format date -->
-        by
-        <GithubAvatar v-bind:serviceId="repository.cache.commit.author.service_id" />
-        {{repository.cache.commit.author.username}}
-        <div class="button-group">
-          <Button type="primary" v-bind:label="`${repository.cache.commit.totals[5]}%`" />
-          <Button label="ø">
-            <!-- TODO compute this value -->
-          </Button>
-          <Button label="ø">
-            <!-- TODO compute this value -->
-          </Button>
-        </div>
-      </div>
+      <RepositoryRow v-bind:repository="repository" />
     </div>
   </div>
 </template>
@@ -36,12 +19,11 @@
 
 import axios from 'axios'
 import Octicon, { repo, search } from 'octicons-vue'
-import GithubAvatar from './GithubAvatar.vue'
-import Button from './Button.vue'
+import RepositoryRow from './RepositoryRow.vue'
 
 export default {
   name: 'FirstComponent',
-  components: { Octicon, GithubAvatar, Button },
+  components: { Octicon, RepositoryRow },
   data: function () {
     return {
       filter: '',
