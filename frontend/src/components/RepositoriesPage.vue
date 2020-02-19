@@ -19,16 +19,13 @@
         <GithubAvatar v-bind:serviceId="repository.cache.commit.author.service_id" />
         {{repository.cache.commit.author.username}}
         <div class="button-group">
-          <button class="button">
-            {{repository.cache.commit.totals[5]}}%
-          </button>
-          <button class="button">
+          <Button type="primary" v-bind:label="`${repository.cache.commit.totals[5]}%`" />
+          <Button label="ø">
             <!-- TODO compute this value -->
-            ø
-          </button>
-          <button class="button">
-            ø
-          </button>
+          </Button>
+          <Button label="ø">
+            <!-- TODO compute this value -->
+          </Button>
         </div>
       </div>
     </div>
@@ -40,10 +37,11 @@
 import axios from 'axios'
 import Octicon, { repo, search } from 'octicons-vue'
 import GithubAvatar from './GithubAvatar.vue'
+import Button from './Button.vue'
 
 export default {
   name: 'FirstComponent',
-  components: { Octicon, GithubAvatar },
+  components: { Octicon, GithubAvatar, Button },
   data: function () {
     return {
       filter: '',
@@ -80,34 +78,5 @@ export default {
     padding: 12px;
     border-bottom: solid 2px #394754;
     display: inline-block;
-  }
-
-  .button-group {
-    color: #ebeceb;
-  }
-
-  .button {
-    border-radius: 0px;
-    border: solid 1px #ebeceb;
-    background-color: #ffffff;
-    padding: 6px 12px;
-    min-width: 100px;
-  }
-
-  .button:first-child {
-    border-radius: 5px 0 0 5px;
-  }
-
-  .button:last-child {
-    border-radius: 0 5px 5px 0;
-  }
-
-  .button:not(:first-child) {
-    border-left: 0;
-  }
-
-  .primary {
-    color: #f01f7a;
-    border-color: #f01f7a;
   }
 </style>
