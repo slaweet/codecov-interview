@@ -14,12 +14,12 @@ export default {
 
 <style lang="scss" scoped>
   .button {
-    color: #ebeceb;
+    color: #1f2123;
     border-radius: 0px;
     border: solid 1px #ebeceb;
     background-color: #ffffff;
     padding: 6px 12px;
-    min-width: 100px;
+    min-width: 85px;
   }
 
   .button:first-child {

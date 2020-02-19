@@ -6,7 +6,7 @@
         <h3 >{{repository.name}}</h3>
         <div class="commit">
           <span class="commit-message">
-            Latest commit
+            Latest commit at
             {{repository.cache.commit.timestamp}} <!-- TODO format date -->
             by
           </span>
@@ -17,10 +17,9 @@
     </div>
     <div>
       <div class="button-group">
-        <Button type="primary" v-bind:label="`${parseFloat(repository.cache.commit.totals[5]).toFixed(2)}%`" />
-        <Button label="ø">
-          <!-- TODO compute this value -->
-        </Button>
+        <Button type="primary" v-bind:label="`${parseFloat(absolute).toFixed(2)}%`" />
+          <!-- TODO implement the background progress bar -->
+        <Button v-bind:label="relative ? `< ${parseFloat(relative).toFixed(2)}% >` : 'ø'" />
         <Button label="ø">
           <!-- TODO compute this value -->
         </Button>
@@ -42,6 +41,14 @@ export default {
   data: function () {
     return {
       repo
+    }
+  },
+  computed: {
+    absolute () {
+      return this.repository.cache.commit.totals[5]
+    },
+    relative () {
+      return this.repository.cache.commit.totals[12][5]
     }
   }
 }
