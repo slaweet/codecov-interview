@@ -24,7 +24,7 @@ export default {
          }
     },
     created: function(){
-        axios.get('http://0.0.0.0:8000/api/users').then(response => this.response = response.data);
+        axios.get('https://codecov.io/api/gh/codecov').then(response => this.response = response.data);
     }
 }
 </script>
