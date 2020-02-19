@@ -4,9 +4,12 @@
       <Octicon :icon="repo" />
       Repositories
     </h2>
-    <!-- TODO implement search field -->
+    <div>
+      <Octicon :icon="search" />
+     <input type="text" v-model="filter" placeholdeer="Search files">
+    </div>
 
-    <div v-for="repository in response.repos" v-bind:key="repository.name" >
+    <div v-for="repository in filteredRepos" v-bind:key="repository.name" >
       <Octicon :icon="repo" />
       <h3 >{{repository.name}}</h3>
       <p>
@@ -24,29 +27,30 @@
 <script lang="ts">
 
 import axios from 'axios'
-import Octicon, { repo } from 'octicons-vue'
+import Octicon, { repo, search } from 'octicons-vue'
+
 export default {
   name: 'FirstComponent',
   components: { Octicon },
   data: function () {
     return {
-      search: '',
-      response: [],
-      repo
+      filter: '',
+      repos: [],
+      repo,
+      search
     }
   },
   created: function () {
-    axios.get('https://codecov.io/api/gh/ansible').then(response => { this.response = response.data })
-  }/*,
-  
+    // TODO move fetching data to Vuex
+    axios.get('https://codecov.io/api/gh/ansible').then(response => { this.repos = response.data.repos })
+  },
   computed: {
     filteredRepos () {
-      return (this.response || []).filter(repo => {
-        return repo.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      return this.repos.filter(repo => {
+        return repo.name.toLowerCase().indexOf(this.filter.toLowerCase()) > -1
       })
     }
   }
-  */
 }
 </script>
 
