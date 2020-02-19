@@ -18,7 +18,18 @@
         by
         <!-- TODO add user avatar -->
         {{repository.cache.commit.author.username}}
-        <!-- TODO show coverage -->
+        <div class="button-group">
+        <button class="button primary">
+          {{parseFloat(repository.cache.commit.totals[5]).toFixed(2)}}%
+        </button>
+        <button class="button">
+        <!-- TODO compute this value -->
+        ø
+        </button>
+        <button class="button">
+        ø
+        </button>
+        </div>
       </p>
     </div>
   </div>
@@ -68,5 +79,34 @@ export default {
     padding: 12px;
     border-bottom: solid 2px #394754;
     display: inline-block;
+  }
+
+  .button-group {
+    color: #ebeceb;
+  }
+
+  .button {
+    border-radius: 0px;
+    border: solid 1px #ebeceb;
+    background-color: #ffffff;
+    padding: 6px 12px;
+    min-width: 60px;
+  }
+
+  .button:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  .button:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+
+  .button:not(:first-child) {
+    border-left: 0;
+  }
+
+  .primary {
+    color: #f01f7a;
+    border-color: #f01f7a;
   }
 </style>
