@@ -2,12 +2,15 @@
   <div class="container">
     <!-- TODO move menu to its own component -->
     <h2 class="menu-item">
+      <!-- TODO fix the icon -->
       <Octicon :icon="repo" />
       Overview
     </h2>
     <h3>Recent Commits</h3>
+      <!-- TODO move comits list to its own component -->
       <div v-for="commit in commits" v-bind:key="commit.commitid" >
         <div class="box">
+          <!-- TODO fix styles of commit row -->
           <GithubAvatar v-bind:serviceId="commit.author.service_id" />
           <span>
             <div>
@@ -85,4 +88,3 @@ export default {
     padding: 10px 30px;
   }
 </style>
-
