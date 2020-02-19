@@ -17,7 +17,7 @@
     </div>
     <div>
       <div class="button-group">
-        <Button type="primary" v-bind:label="`${repository.cache.commit.totals[5]}%`" />
+        <Button type="primary" v-bind:label="`${parseFloat(repository.cache.commit.totals[5]).toFixed(2)}%`" />
         <Button label="ø">
           <!-- TODO compute this value -->
         </Button>
@@ -53,6 +53,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin: 20px 0;
 }
 
 .row {
@@ -66,7 +67,7 @@ export default {
 }
 
 h3 {
-  margin: 2px 10px;
+  margin: 0 10px;
 }
 
 .commit {
@@ -77,6 +78,7 @@ h3 {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+  margin: 0 10px;
 }
 
 .commit-message {
