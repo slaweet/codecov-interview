@@ -36,6 +36,17 @@ All work should be performed in the `frontend` folder. You're free to edit the `
 ## Handy References and Tips
 Below are some references and tips that can help make your exercise successful.
 
+### Relevant Packages
+
+Some important packages are already in place so that you can begin work immediately. Browsing the package.json file is encouraged, but some of the most important packages are:
+
+* VueJS -- https://vuejs.org/ the framework you'll be using for this exercise (docs)
+* VueX -- https://vuex.vuejs.org/ state management
+* vue-router -- https://router.vuejs.org/ for page routing.
+
+Finally, if you prefer to use code as a reference, the vue-enterprise-boilerplate repo might be helpful for demonstrating how to use the above packages. See: https://github.com/chrisvfritz/vue-enterprise-boilerplate
+
+
 ### Codecov's API
 It will be necessary to ingest data from Codecov's API during the course of this exercise. You can find the API reference here: 
 
@@ -45,6 +56,15 @@ Of particular importance are the following:
 
 * The Totals object. 
 * The Repositories, Branches, and Commits Resources
+
+You can also turn any page you can view on Codecov into a json response by prepending `/api` to the url. For example:
+
+* https://codecov.io/gh/ansible/ansible
+* https://codecov.io/api/gh/ansible/ansible
+
+provide the same data. The first as a rendered page, the second as a json response. This can be very helpful if you need to compare a json response to a visual result to help understand the contents of the json response. 
+
+Since this exercise uses the public API, there is no need for a Bearer token, ClientID header, etc.
 
 ### Zeplin
 Front end wireframes are in a tool called Zeplin. You will be given access to this tool during this exercise. By double clicking on elements in the wireframes, you can expose their underlying CSS and HTML. This may be helpful during the exercise. 
